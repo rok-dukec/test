@@ -1,4 +1,3 @@
-version: '3.8'
 services:
   setup:
     image: 10.88.66.194:8081/ftra/setuphost:14.2.0.138
