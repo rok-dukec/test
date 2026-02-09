@@ -7,7 +7,7 @@ services:
       - ALL
     environment:
       - VERBOSE=${VERBOSE:-false}
-      - VOLUME=/opt/ftra/data
+      - VOLUME=/opt/ftra
       - APPARMOR_PROFILE=${APPARMOR_PROFILE:-unconfined}
       - SOME_ENV_VAR=value
     secrets:
@@ -15,18 +15,18 @@ services:
     pid: host
     userns_mode: host
     security_opt:
-      - apparmor:unconfined    
+      - apparmor:unconfined
 
   runtime:
     image: 10.88.66.194:8081/ftra/runtime:14.2.0.138
     depends_on:
-      setuphost:
+      setup:
         condition: service_completed_successfully
     environment:
       - SHARED_NETWORK=false
       - TZ
     volumes:
-      - ${VOLUME}:/runtime_persistence
+      - ${VOLUME:-/opt/ftra}:/runtime_persistence
     cap_add:
       - NET_ADMIN
     ports:
