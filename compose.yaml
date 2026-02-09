@@ -5,8 +5,8 @@ services:
     volumes:
       - /opt/ftra:/opt/ftra
     security_opt:
-      - "no-new-privileges:true"
-      - "apparmor:unconfined"
+      - "no-new-privileges":"true"
+      - "apparmor":"unconfined"
     environment:
       - SOME_ENV_VAR=value
 
@@ -15,5 +15,5 @@ services:
     volumes:
       - /opt/ftra:/opt/ftra
     security_opt:
-      - "no-new-privileges:true"
-      - "apparmor:unconfined"
+      - "no-new-privileges":"true"
+      - "apparmor":"unconfined"
