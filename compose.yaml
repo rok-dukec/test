@@ -7,7 +7,7 @@ services:
       - ALL
     environment:
       - VERBOSE=${VERBOSE:-false}
-      - VOLUME
+      - VOLUME=/opt/ftra/data
       - APPARMOR_PROFILE=${APPARMOR_PROFILE:-unconfined}
       - SOME_ENV_VAR=value
     secrets:
