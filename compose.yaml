@@ -33,3 +33,7 @@ services:
     userns_mode: host
     security_opt:
       - apparmor:${APPARMOR_PROFILE:-unconfined}
+
+secrets:
+  web_login_password:
+    environment: "WEB_LOGIN_PASSWORD"
