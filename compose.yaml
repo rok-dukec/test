@@ -9,9 +9,10 @@ services:
       - VERBOSE=${VERBOSE:-false}
       - VOLUME=/opt/ftra
       - APPARMOR_PROFILE=${APPARMOR_PROFILE:-unconfined}
+      - WEB_LOGIN_PASSWORD=""
       - SOME_ENV_VAR=value
-#    secrets:
-#      - web_login_password
+    secrets:
+      - web_login_password
     pid: host
     userns_mode: host
     security_opt:
@@ -36,6 +37,6 @@ services:
     security_opt:
       - apparmor:${APPARMOR_PROFILE:-unconfined}
 
-#secrets:
-#  web_login_password:
-#    environment: "WEB_LOGIN_PASSWORD"
+secrets:
+  web_login_password:
+    environment: "WEB_LOGIN_PASSWORD"
