@@ -9,7 +9,6 @@ services:
       - VERBOSE=${VERBOSE:-false}
       - VOLUME=/opt/ftra
       - APPARMOR_PROFILE=${APPARMOR_PROFILE:-unconfined}
-      - WEB_LOGIN_PASSWORD=      
       - SOME_ENV_VAR=value
     pid: host
     userns_mode: host
@@ -24,7 +23,6 @@ services:
     environment:
       - SHARED_NETWORK=false
       - TZ
-      - WEB_LOGIN_PASSWORD=      
     volumes:
       - ${VOLUME:-/opt/ftra}:/runtime_persistence
     cap_add:
@@ -35,4 +33,3 @@ services:
     userns_mode: host
     security_opt:
       - apparmor:${APPARMOR_PROFILE:-unconfined}
-
