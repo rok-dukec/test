@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  setup:
+    image: 10.88.66.194:8081/ftra/setuphost:14.2.0.138
+    volumes:
+      - /opt/ftra:/opt/ftra
+    security_opt:
+      - "no-new-privileges:true"
+      - "apparmor:unconfined"
+    environment:
+      - SOME_ENV_VAR=value
+
+  runtime:
+    image: 10.88.66.194:8081/ftra/runtime:14.2.0.138
+    volumes:
+      - /opt/ftra:/opt/ftra
+    security_opt:
+      - "no-new-privileges:true"
+      - "apparmor:unconfined"
