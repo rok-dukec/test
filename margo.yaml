@@ -3,14 +3,14 @@ kind: ApplicationDescription
 metadata:
   id: ftra
   name: ftra-compose-app-package
-  description: FTRA stack (setup + runtime) deployed via Docker Compose
+  description: Docker Compose
   version: 1.0.0
 
 deploymentProfiles:
   - type: compose
-    id: ftra-compose
+    id: compose-00
     components:
-      - name: ftra
+      - name: margo
         properties:
           packageLocation: https://raw.githubusercontent.com/rok-dukec/test/refs/heads/main/compose.yaml
 
@@ -19,4 +19,4 @@ parameters:
     value: value
     targets:
       - pointer: ENV.SOME_ENV_VAR
-        components: ["ftra"]
+        components: ["margo"]
