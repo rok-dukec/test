@@ -1,0 +1,22 @@
+apiVersion: margo.org/v1-alpha1
+kind: ApplicationDescription
+metadata:
+  id: ftra
+  name: ftra-compose-app-package
+  description: FTRA stack (setup + runtime) deployed via Docker Compose
+  version: 1.0.0
+
+deploymentProfiles:
+  - type: compose
+    id: ftra-compose
+    components:
+      - name: ftra
+        properties:
+          packageLocation: https://raw.githubusercontent.com/rok-dukec/test/refs/heads/main/compose.yaml
+
+parameters:
+  someEnvVar:
+    value: value
+    targets:
+      - pointer: ENV.SOME_ENV_VAR
+        components: ["ftra"]
