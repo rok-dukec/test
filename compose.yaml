@@ -28,7 +28,7 @@ services:
     cap_add:
       - NET_ADMIN
     ports:
-      - "0.0.0.0:5161:5161"
+      - "127.0.0.1:5161:5161"
       - "5936:5936"
     userns_mode: host
     security_opt:
