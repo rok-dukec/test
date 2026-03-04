@@ -1,6 +1,6 @@
 services:
   setup:
-    image: 10.88.66.194:8081/ftra/setuphost:14.2.0.138
+    image: harbor.machine:8081/ftra/setuphost:14.2.0.138
     volumes:
       - /:/host
     cap_add:
@@ -16,7 +16,7 @@ services:
       - apparmor:unconfined
 
   runtime:
-    image: 10.88.66.194:8081/ftra/runtime:14.2.0.138
+    image: harbor.machine:8081/ftra/runtime:14.2.0.138
     depends_on:
       setup:
         condition: service_completed_successfully
