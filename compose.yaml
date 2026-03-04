@@ -1,19 +1,4 @@
 services:
-  setup:
-    image: harbor.machine:8081/ftra/setuphost:14.2.0.138
-    volumes:
-      - /:/host
-    cap_add:
-      - ALL
-    environment:
-      - VERBOSE=${VERBOSE:-false}
-      - VOLUME=/opt/ftra
-      - APPARMOR_PROFILE=${APPARMOR_PROFILE:-unconfined}
-      - SOME_ENV_VAR=value
-    pid: host
-    userns_mode: host
-    security_opt:
-      - apparmor:unconfined
 
   runtime:
     image: harbor.machine:8081/ftra/runtime:14.2.0.138
