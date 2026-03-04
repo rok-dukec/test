@@ -1,10 +1,6 @@
 services:
-
   runtime:
     image: harbor.machine:8081/rockwell/ftra-ra:14.3.2.999
-    depends_on:
-      setup:
-        condition: service_completed_successfully
     environment:
       - SHARED_NETWORK=false
       - TZ
